@@ -873,7 +873,7 @@ const CGFloat kOverlayInset = 10;
     camera.delegate = self;
     
     presentingVC = vc;
-    
+    camera.modalPresentationStyle = UIModalPresentationFullScreen;
     [presentingVC presentViewController:camera animated:NO completion:nil];
     
 }
