@@ -31,6 +31,6 @@ Pod::Spec.new do |s|
 
   s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit', 'AVFoundation', 'CoreMedia', 'ImageIO'
-  s.dependency 'MMSCameraViewControllerWithSmallFixes',  '~> 1.4.1'
+  s.dependency 'MMSCameraViewControllerWithSmallFixes',  '~> 1.4.2'
 
 end
