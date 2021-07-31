@@ -25,7 +25,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MMSProfileImagePickerDelegate.h"
-@import MMSCameraViewController;
+@import MMSCameraViewControllerWithSmallFixes;
 
 @interface MMSProfileImagePicker : UIViewController <UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,MMSCameraViewDelegate>
 
