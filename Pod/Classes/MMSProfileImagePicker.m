@@ -381,8 +381,12 @@ const CGFloat kOverlayInset = 10;
     
     /* define constants to create and position the choose button on the bottom right corner of the parent view.
      */
-    const CGRect kChooseFrame = {0.0f, 0.0f, 75.0f, 27.0f};
-    const CGFloat kChooseRightSpace = 25.0f;
+//    const CGRect kChooseFrame = {0.0f, 0.0f, 75.0f, 27.0f};
+//    const CGFloat kChooseRightSpace = 25.0f;
+//    const CGFloat kChooseBottomSpace = 50.0f;
+    
+    const CGRect kChooseFrame = {0.0f, 0.0f, 50.0f, 27.0f};
+    const CGFloat kChooseLeftSpace = 25.0f;
     const CGFloat kChooseBottomSpace = 50.0f;
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -411,18 +415,28 @@ const CGFloat kOverlayInset = 10;
     
     /* ancher the choose button to the bottom right corner of the parent view.
      */
+//    if (@available(iOS 11.0, *)) {
+//
+//        // iPhone X, et al, support using iOS11 Safe Area Layout Guide mechanism.
+//        [button.topAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.bottomAnchor constant:-kChooseBottomSpace].active = YES;
+//
+//        [button.rightAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.rightAnchor constant:-kChooseRightSpace].active = YES;
+//    }
+//    else {
+//
+//        [button.topAnchor constraintEqualToAnchor:parentView.bottomAnchor constant:-kChooseBottomSpace].active = YES;
+//
+//        [button.rightAnchor constraintEqualToAnchor:parentView.rightAnchor constant:-kChooseRightSpace].active = YES;
+//    }
+    
     if (@available(iOS 11.0, *)) {
-        
         // iPhone X, et al, support using iOS11 Safe Area Layout Guide mechanism.
         [button.topAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.bottomAnchor constant:-kChooseBottomSpace].active = YES;
-        
-        [button.rightAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.rightAnchor constant:-kChooseRightSpace].active = YES;
+        [button.leftAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.leftAnchor constant:kChooseLeftSpace].active = YES;
     }
     else {
-        
         [button.topAnchor constraintEqualToAnchor:parentView.bottomAnchor constant:-kChooseBottomSpace].active = YES;
-        
-        [button.rightAnchor constraintEqualToAnchor:parentView.rightAnchor constant:-kChooseRightSpace].active = YES;
+        [button.leftAnchor constraintEqualToAnchor:parentView.leftAnchor constant:kChooseLeftSpace].active = YES;
     }
     
     return button;
@@ -441,9 +455,13 @@ const CGFloat kOverlayInset = 10;
     
     /* define constants to create and position the choose button on the bottom left corner of the parent view.
      */
-    const CGRect kCancelFrame = {0.0f, 0.0f, 50.0f, 27.0f};
-    const CGFloat kCancelLeftSpace = 25.0f;
-    const CGFloat kCancelBottomSpace = 50.0f;
+//    const CGRect kCancelFrame = {0.0f, 0.0f, 50.0f, 27.0f};
+//    const CGFloat kCancelLeftSpace = 25.0f;
+//    const CGFloat kCancelBottomSpace = 50.0f;
+    
+        const CGRect kCancelFrame = {0.0f, 0.0f, 75.0f, 27.0f};
+        const CGFloat kCancelRightSpace = 25.0f;
+        const CGFloat kCancelBottomSpace = 50.0f;
     
     UIButton* button = [UIButton buttonWithType:UIButtonTypeSystem];
     
@@ -471,17 +489,28 @@ const CGFloat kOverlayInset = 10;
     
     /* ancher the cancel button to the bottom left corner of the parent view.
      */
-    if (@available(iOS 11.0, *)) {
-        // iPhone X, et al, support using iOS11 Safe Area Layout Guide mechanism.
-        [button.topAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.bottomAnchor constant:-kCancelBottomSpace].active = YES;
+//    if (@available(iOS 11.0, *)) {
+//        // iPhone X, et al, support using iOS11 Safe Area Layout Guide mechanism.
+//        [button.topAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.bottomAnchor constant:-kCancelBottomSpace].active = YES;
+//
+//        [button.leftAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.leftAnchor constant:kCancelLeftSpace].active = YES;
+//    }
+//    else {
+//        [button.topAnchor constraintEqualToAnchor:parentView.bottomAnchor constant:-kCancelBottomSpace].active = YES;
+//
+//        [button.leftAnchor constraintEqualToAnchor:parentView.leftAnchor constant:kCancelLeftSpace].active = YES;
+//    }
+    
+        if (@available(iOS 11.0, *)) {
+            // iPhone X, et al, support using iOS11 Safe Area Layout Guide mechanism.
+            [button.topAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.bottomAnchor constant:-kCancelBottomSpace].active = YES;
+            [button.rightAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.rightAnchor constant:-kCancelRightSpace].active = YES;
+        }
+        else {
+            [button.topAnchor constraintEqualToAnchor:parentView.bottomAnchor constant:-kCancelBottomSpace].active = YES;
+            [button.rightAnchor constraintEqualToAnchor:parentView.rightAnchor constant:-kCancelRightSpace].active = YES;
+        }
         
-        [button.leftAnchor constraintEqualToAnchor:parentView.safeAreaLayoutGuide.leftAnchor constant:kCancelLeftSpace].active = YES;
-    }
-    else {
-        [button.topAnchor constraintEqualToAnchor:parentView.bottomAnchor constant:-kCancelBottomSpace].active = YES;
-        
-        [button.leftAnchor constraintEqualToAnchor:parentView.leftAnchor constant:kCancelLeftSpace].active = YES;
-    }
 
     return button;
     
@@ -917,3 +946,4 @@ const CGFloat kOverlayInset = 10;
  */
 
 @end
+
